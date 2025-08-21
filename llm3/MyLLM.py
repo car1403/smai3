@@ -11,6 +11,7 @@ def geminiModel():
     genai.configure(api_key=GOOGLE_API_KEY)
     model = genai.GenerativeModel("gemini-2.0-flash")
     return model
+
 def geminiTxt(txt):
     model = geminiModel()
     response = model.generate_content(txt)
