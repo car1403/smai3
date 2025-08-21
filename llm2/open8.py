@@ -17,5 +17,5 @@ def test(prompt):
     urllib.request.urlretrieve(image_url, "img/sample2.png")
 
 if __name__ == '__main__':
-    prompt = "크리스마스 트리를 넣어죠"
+    prompt = "흰색 강아지를 넣어죠"
     test(prompt)
