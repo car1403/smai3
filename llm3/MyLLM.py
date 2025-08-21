@@ -5,8 +5,8 @@ import streamlit as st
 
 load_dotenv()
 
-#GOOGLE_API_KEY=os.getenv("GOOGLE_API_KEY")
-GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
+GOOGLE_API_KEY=os.getenv("GOOGLE_API_KEY")
+#GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
 
 
 def geminiModel():
