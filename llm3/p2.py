@@ -3,6 +3,8 @@ import os
 import streamlit as st
 from PIL import Image
 
+from MyLLM import geminiModel
+
 
 def save_uploadedfile(directory, file):
     # 1. 디렉토리가 없으면 생성
@@ -27,8 +29,11 @@ if file:
 
     text = st.text_area(label="질문입력:",
                         placeholder="질문을 입력 하세요")
-
-
+    if st.button("SEND"):
+        img = Image.open("img/"+file.name)
+        model = geminiModel()
+        response = model.generate_content( [ text , img ] )
+        st.info(response.text)
 
 
 
