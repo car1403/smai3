@@ -25,6 +25,9 @@ if file:
     st.image(file)
     save_uploadedfile("img", file)
 
+    text = st.text_area(label="질문입력:",
+                        placeholder="질문을 입력 하세요")
+
 
 
 
