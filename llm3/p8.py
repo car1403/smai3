@@ -21,9 +21,9 @@ if st.button("SEND"):
         my_bar = progressBar("Operation in progress. Please wait.")
         result = openAiModelArg("gpt-4o", msg)
         my_bar.empty()
-        # 결과를 음성으로 플레이 하고
         # 결과 내용을 화면에 출력 한다.
         st.info(result)
+        # 결과를 음성으로 플레이 하고
         makeAudio(result, "result.mp3")
         st.audio("audio/result.mp3", autoplay=True, width=1)
 
