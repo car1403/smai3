@@ -21,11 +21,15 @@ def geminiTxt(txt):
     response = model.generate_content(txt)
     return response.text
 
-def save_carpturefile(picture, name):
+def save_carpturefile(directory, picture, name, st):
     if picture is not None:
-        with open(name, 'wb') as file:
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+        # 2. 파일 저장 (이름 변경 없이 저장)
+        with open(os.path.join(directory, name), 'wb') as file:
             file.write(picture.getvalue())
-
+        # 3. 저장 완료 메시지 출력
+        st.success(f'저장 완료: {directory}에 {name} 저장되었습니다.')
 
 def save_uploadedfile(directory, file, st):
     # 1. 디렉토리가 없으면 생성
