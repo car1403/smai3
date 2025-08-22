@@ -1,6 +1,7 @@
 import streamlit as st
+from PIL import Image
 
-from MyLLM import save_uploadedfile
+from MyLLM import save_uploadedfile, makeImage, progressBar
 
 # Sidebar
 st.sidebar.markdown("Clicked Page 11")
@@ -14,6 +15,17 @@ name = st.text_input(label="이미지이름:",
 if st.button("SEND"):
     if text and name:
         st.info(text)
-
+        my_bar = progressBar("Operation in progress. Please wait.")
+        makeImage(text, name)
+        my_bar.empty()
+        with open("img/"+name, "rb") as file:
+            st.download_button(
+                label="Download image",
+                data=file,
+                file_name="img/" + name,
+                mime="image/png",
+            )
+        img = Image.open("img/" + name)
+        st.image(img)
     else:
         st.info("다시 입력 하세요")

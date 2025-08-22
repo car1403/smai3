@@ -38,7 +38,6 @@ elif menu == "CSV":
         save_uploadedfile("csv", file, st)
         st.download_button(
             label="파일다운로드",
-            data=file,
             file_name=file.name,
             mime="text/text"
         )
