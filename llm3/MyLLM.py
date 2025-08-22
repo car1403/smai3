@@ -111,5 +111,18 @@ def makeImage(prompt, name):
     imgName = "img/"+name
     urllib.request.urlretrieve(image_url,  imgName)
 
+def makeImages(prompt, name, num):
+    openModel = openAiModel()
+    response = openModel.images.generate(
+        model="dall-e-2",
+        prompt=prompt,
+        size="1024x1024",
+        n=num,
+    )
+    for n,data in enumerate(response.data):
+        print(n)
+        print(data.url)
+        imgname = f"img/{name}_{n}.png"
+        urllib.request.urlretrieve(data.url, imgname)
 
 

@@ -18,6 +18,7 @@ if st.button("SEND"):
         my_bar = progressBar("Operation in progress. Please wait.")
         makeImage(text, name)
         my_bar.empty()
+
         with open("img/"+name, "rb") as file:
             st.download_button(
                 label="Download image",
