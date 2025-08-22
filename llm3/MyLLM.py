@@ -21,6 +21,11 @@ def geminiTxt(txt):
     response = model.generate_content(txt)
     return response.text
 
+def save_carpturefile(picture, name):
+    if picture is not None:
+        with open(name, 'wb') as file:
+            file.write(picture.getvalue())
+
 
 def save_uploadedfile(directory, file, st):
     # 1. 디렉토리가 없으면 생성
