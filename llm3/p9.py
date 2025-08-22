@@ -30,7 +30,7 @@ if file:
                 {"role": "user", "content": [
                     {"type": "text", "text": text},
                     {"type": "image_url", "image_url": {
-                        "url": f"data:image/jpg;base64,{base64img}"}
+                        "url": f"data:image/png;base64,{base64img}"}
                      }
                 ]}
             ],
