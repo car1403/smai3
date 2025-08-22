@@ -1,9 +1,16 @@
 import streamlit as st
 
-from MyLLM import save_uploadedfile
+from MyLLM import save_uploadedfile, makeAudio
 
 # Sidebar
 st.sidebar.markdown("Clicked Page 8")
 
 # Page
 st.title("Page 8")
+text = st.text_input("질문 입력", placeholder="질문을 입력하세요")
+if st.button("SEND"):
+    if text:
+        st.info(text)
+        makeAudio(text, "temp.mp3")
+    else:
+        st.info("입력 하세요")

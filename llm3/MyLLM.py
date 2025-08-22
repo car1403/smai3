@@ -75,3 +75,23 @@ def progressBar(txt):
     time.sleep(1)
     return my_bar
     # Progress Bar End -----------------------------------------
+
+def makeAudio(text, name):
+    if not os.path.exists("audio"):
+        os.makedirs("audio")
+    model = openAiModel()
+    response = model.audio.speech.create(
+        model="tts-1",
+        input=text,
+        voice="alloy",
+        response_format="mp3",
+        speed=1.1,
+    )
+    response.stream_to_file("audio/"+name)
+
+
+
+
+
+
+
