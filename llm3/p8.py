@@ -13,4 +13,5 @@ if st.button("SEND"):
         st.info(text)
         makeAudio(text, "temp.mp3")
     else:
+        st.audio("audio/retry.mp3", autoplay=True, width=1)
         st.info("입력 하세요")
