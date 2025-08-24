@@ -26,14 +26,14 @@ if st.button("SEND"):
 
 
         for i in range(0, num):
-            with open(f"img/{name}_{i}.png", "rb") as file:
+            with open(f"img/{name.split('.')[0]}_{i}.png", "rb") as file:
                 st.download_button(
-                    label=f"Download: {name}_{i}.png",
+                    label=f"Download: {name.split('.')[0]}_{i}.png",
                     data=file,
-                    file_name=f"img/{name}_{i}.png",
+                    file_name=f"img/{name.split('.')[0]}_{i}.png",
                     mime="image/png",
                 )
-            img = Image.open(f"img/{name}_{i}.png")
+            img = Image.open(f"img/{name.split('.')[0]}_{i}.png")
             st.image(img)
     else:
         st.info("다시 입력 하세요")
