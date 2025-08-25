@@ -2,7 +2,7 @@ import streamlit as st
 from langchain.agents import initialize_agent, AgentType
 from langchain_community.agent_toolkits.load_tools import load_tools
 
-from MyLCH import getOpenAI
+from MyLCH import getOpenAI, progressBar
 
 st.markdown("Page1")
 st.sidebar.markdown("Clicked Page1")
@@ -20,6 +20,9 @@ if st.button("SEND"):
             agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
             verbose=False
         )
+        my_bar = progressBar()
         st.info(agent.run(text))
+        my_bar.empty()
+
     else:
         st.info("질문을 입력하세요")
