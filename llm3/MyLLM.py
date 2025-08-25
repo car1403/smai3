@@ -86,9 +86,9 @@ def makeAudio(text, name):
         model="tts-1",
         input=text,
         #["alloy", "echo", "fable", "onyx", "nova", "shimmer"],
-        voice="alloy",
+        voice="echo",
         response_format="mp3",
-        speed=1.1,
+        speed=1.2,
     )
     response.stream_to_file("audio/"+name)
 
