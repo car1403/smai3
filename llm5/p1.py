@@ -13,7 +13,7 @@ if st.button("SEND"):
     if text:
         st.info(text)
         makeAudio(text, "temp.mp3")
-        st.audio("audio/temp.mp3", autoplay=True)
+        st.audio("audio/temp.mp3", autoplay=True, width=1)
 
         openllm = getOpenAI()
         tools = load_tools(['wikipedia'], llm=openllm)
@@ -27,7 +27,7 @@ if st.button("SEND"):
         result = agent.run(text)
         st.info(result)
         makeAudio(result, "result.mp3")
-        st.audio("audio/result.mp3", autoplay=True)
+        st.audio("audio/result.mp3", autoplay=True, width=1)
         my_bar.empty()
 
     else:
