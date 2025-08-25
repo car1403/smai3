@@ -20,7 +20,7 @@ if st.button("SEND"):
             agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
             verbose=False
         )
-        my_bar = progressBar()
+        my_bar = progressBar("Loading .....")
         st.info(agent.run(text))
         my_bar.empty()
 
