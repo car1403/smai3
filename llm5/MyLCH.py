@@ -118,3 +118,7 @@ def get_conversation_chain(vectorstore):
         memory=memory
     ) #ConversationalRetrievalChain을 통해 langchain 챗봇에 쿼리 전송
     return conversation_chain
+def split_docs(documents,chunk_size=1000,chunk_overlap=20):
+  text_splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
+  docs = text_splitter.split_documents(documents)
+  return docs

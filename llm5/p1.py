@@ -21,7 +21,8 @@ if st.button("SEND"):
             tools,
             openllm,
             agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
-            verbose=False
+            verbose=False,
+            handle_parsing_errors=True
         )
         my_bar = progressBar("Loading .....")
         result = agent.run(text)
