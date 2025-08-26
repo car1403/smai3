@@ -98,6 +98,8 @@ def encode_image(image_path):
         return base64.b64encode(image_file.read()).decode("utf-8")
 
 def makeImage(prompt, name):
+    if not os.path.exists("img"):
+        os.makedirs("img")
     openModel = openAiModel()
     response = openModel.images.generate(
         model="dall-e-3",
@@ -112,6 +114,8 @@ def makeImage(prompt, name):
     urllib.request.urlretrieve(image_url,  imgName)
 
 def makeImages(prompt, name, num):
+    if not os.path.exists("img"):
+        os.makedirs("img")
     openModel = openAiModel()
     response = openModel.images.generate(
         model="dall-e-2",
@@ -126,6 +130,8 @@ def makeImages(prompt, name, num):
         urllib.request.urlretrieve(data.url, imgname)
 
 def cloneImage(imgName, num):
+    if not os.path.exists("img"):
+        os.makedirs("img")
     openModel = openAiModel()
     response = openModel.images.create_variation(
         model="dall-e-2",
